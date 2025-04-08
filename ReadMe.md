@@ -16,6 +16,8 @@ The goal of this analysis is to:
 - Evaluate Water-Oil Ratio (WOR) trends to assess water breakthrough timing. 
 - Explore pressure behavior in relation to production decline.
 
+You can preview dataset here [Volve-Field Analysis](['https://nbviewer.org/github/ser-arthur/volve-field-data-analysis/blob/main/volve-field-data-analysis.ipynb'])
+
 ## Dataset
 
 The dataset includes:
