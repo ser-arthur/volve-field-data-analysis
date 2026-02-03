@@ -332,7 +332,7 @@ elif page == "2. Well Diagnostics":
 
     c_sel1, c_sel2 = st.columns([1, 3])
     with c_sel1:
-        well_type = st.radio("Select Well Type:", ["Producers 🛢️", "Injectors 💧"])
+        well_type = st.radio("Select Well Type:", ["Producers ", "Injectors"])
     with c_sel2:
         well_list = producers if "Producers" in well_type else injectors
         default_ix = well_list.index('15/9-F-14') if '15/9-F-14' in well_list else 0
@@ -420,7 +420,7 @@ elif page == "2. Well Diagnostics":
                                    "Stable GOR + Rising Water Cut = Good Pressure Support, but Swept Zone Breakthrough.")
 
                 with c2:
-                    st.markdown("#### 3. Displacement Efficiency (Leucuta)")
+                    st.markdown("#### 3. Displacement Efficiency (Cum. Oil Produced vs Water Cut %)")
                     st.markdown('<div style="height: 28px;"></div>', unsafe_allow_html=True)  # Spacer
                     fig_eff = go.Figure()
                     fig_eff.add_trace(
@@ -522,7 +522,7 @@ elif page == "2. Well Diagnostics":
             st.plotly_chart(fig_uptime, use_container_width=True)
 
         with tab3:
-            st.markdown("### 🕸️ Reservoir Connectivity Analysis")
+            st.markdown("### Reservoir Connectivity Analysis")
 
             st.markdown("#### 1. Connectivity Matrix")
             pivot_inj = df.pivot_table(index='DATEPRD', columns='NPD_WELL_BORE_NAME', values='BORE_WI_VOL',
@@ -542,7 +542,8 @@ elif page == "2. Well Diagnostics":
                 st.plotly_chart(fig_mat, use_container_width=True)
 
             st.markdown("---")
-            st.markdown("#### 2. Sector Deep Dive")
+            st.markdown("#### 2. Injector Support per Producer ")
+            st.caption("Overlay specific injectors to identify which source is driving production for the well.")
             c_dd1, c_dd2 = st.columns(2)
             with c_dd1:
                 target_prod = st.selectbox("Producer:", producers, index=0)
@@ -575,7 +576,7 @@ elif page == "2. Well Diagnostics":
                                "Look for peak matching between Injection Lines (Right Axis) and Oil Area (Left Axis). A 1-3 month lag is typical.")
 
     elif "Injectors" in well_type:
-        st.markdown(f"### 💧 Injection Performance: {selected_well}")
+        st.markdown(f"### Injection Performance: {selected_well}")
         inj_data = df[df['NPD_WELL_BORE_NAME'] == selected_well].sort_values('DATEPRD')
         mask_inj = (inj_data['DATEPRD'].dt.date >= start_date) & (inj_data['DATEPRD'].dt.date <= end_date)
         inj_filtered = inj_data.loc[mask_inj].copy()
