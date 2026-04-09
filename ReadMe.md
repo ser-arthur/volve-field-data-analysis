@@ -17,6 +17,7 @@ The goal of this analysis is to:
 - Explore pressure behavior in relation to production decline.
 
 You can preview project in jupyter notebook here [Volve-Field Analysis](https://nbviewer.org/github/ser-arthur/volve-field-data-analysis/blob/main/volve-field-data-analysis.ipynb)
+An interactive Streamlit Dashboard is also available for viewing here: https://volve-oilfield-analysis-ksa.streamlit.app
 
 ## Dataset
 
