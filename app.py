@@ -32,18 +32,23 @@ st.markdown("""
     h4 { color: #2980B9; font-weight: 500; } /* Blue for Sub-sections */
     h5 { color: #7F8C8D; font-weight: 500; }
 
-    /* Metric Cards (Neumorphism) */
+    /* Metric Cards (Dark Console) */
     div[data-testid="stMetric"] {
-        background-color: #FFFFFF;
-        border: 1px solid #E0E0E0;
+        background-color: #161B22;
+        border: 1px solid #30363D;
         padding: 15px;
         border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        transition: transform 0.2s;
+        transition: transform 0.2s, border-color 0.2s;
     }
     div[data-testid="stMetric"]:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 8px rgba(0,0,0,0.1);
+        border-color: #4B5563;
+    }
+    div[data-testid="stMetric"] [data-testid="stMetricLabel"] p {
+        color: #8B949E !important;
+    }
+    div[data-testid="stMetric"] [data-testid="stMetricValue"] {
+        color: #FAFAFA !important;
     }
 
     /* Glassmorphism Insight Box Class */
